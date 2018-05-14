@@ -1,26 +1,36 @@
 <template>
-  <el-select v-model="value" placeholder="请选择" @change="sendMessageToBus(value)">
-    <el-option
+  <Select v-model="value" placeholder="请选择" @on-change="sendMessageToBus">
+    <Option
       v-for="item in Plants"
-      :key="item.plant_id"
-      :label="item.plant_name"
-      :value="item.location_geo">
-    </el-option>
-  </el-select>
+      :key="item.location_geo"
+      :value="item.plant_id">
+      {{item.plant_name}}
+    </Option>
+  </Select>
 </template>
 
 <script>
   import bus from '@/store/bus'
+
   export default {
     name: "selectOne",
     data() {
       return {
         Plants: [],
-        value: '选择电站'
+        value: 1200000000002200
       }
     },
     created() {
-      this.$http.get("http://localhost:1314/api/plant")
+
+      this.$store.dispatch('getStations').then(response => {
+        this.Plants = this.$store.state.Stations
+
+        this.value = this.$store.state.Stations[0].plant_id
+        console.log("[Created-init data] getStations Success: " + response)
+      }, error => {
+        console.log("[Created-init data] got nothing from the server")
+      })
+      /*this.$http.get("http://101.201.72.120:1314/api/plant")
         .then((res) => {
           //console.log(res.data)
           this.Plants = res.data
@@ -28,13 +38,18 @@
 
         }, (error) => {
           console.log(error)
-        })
+        })*/
     },
     methods: {
-      sendMessageToBus(value){
-        bus.$emit('selectedPlan',value)
+      sendMessageToBus(value) {
+        if (isNaN(value)) {
+          console.log("[selected-sendMessageToBus] not number : ", value)
+        }
+        else {
+          console.log("[selected-sendMessageToBus] selected and send to: ", value)
+          bus.$emit('selectedPlan', value)
+        }
       }
-
     }
 
   }
