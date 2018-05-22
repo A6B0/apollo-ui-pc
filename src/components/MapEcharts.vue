@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart3" :style="{height: '300px'}"></div>
+  <div id="myChart3" :style="{height: '350px'}"></div>
 </template>
 
 <script>
@@ -55,7 +55,7 @@
         latlong.ZW = {'latitude': this.Latitude, 'longitude': this.Longtitude};
 
         var mapData = [
-          {'code': 'ZW', 'name': this.PlantName, 'value': -1, 'color': '#39edf4'}];
+          {'code': 'ZW', 'name': this.PlantName, 'value': 0, 'color': '#39edf4'}];
 
         var max = -Infinity;
         var min = Infinity;
@@ -71,8 +71,8 @@
         var option = {
 
           title: {
-            subtext: '地理位置',
-            left: 'center',
+            //subtext: '地理位置',
+            left: 'left',
             top: 'top',
             textStyle: {
               color: '#fff'
@@ -84,7 +84,7 @@
               var value = (params.value + '').split('.');
               value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,')
                 + '.' + value[1];
-              return params.seriesName + '<br/>' + params.name + ' : ' + value;
+              return params.name;
             }
           },
           visualMap: {
@@ -92,7 +92,7 @@
             min: 0,
             max: max,
             inRange: {
-              symbolSize: [6, 60]
+              symbolSize: [3, 30]
             }
           },
           geo: {
@@ -107,8 +107,10 @@
             },
             itemStyle: {
               normal: {
-                areaColor: '#323c48',
-                borderColor: '#303b48'
+                //#323c48
+                areaColor: '#4c7db5',
+                //#303b48
+                borderColor: '#4c7db5'
               },
               emphasis: {
                 areaColor: '#2a333d'

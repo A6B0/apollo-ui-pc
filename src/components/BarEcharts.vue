@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart2" :style="{height: '250px'}"></div>
+  <div id="myChart2" :style="{height: '350px'}"></div>
 </template>
 
 <script>
@@ -51,7 +51,7 @@
         myCharts.setOption({
             title: {
               //text: '风速预测',
-              subtext: '风速预测',
+              //subtext: '风速预测',
               left: 'left'
             },
             toolbox: {},
@@ -81,12 +81,14 @@
             yAxis: [
               {
                 type: 'value',
+                axisLabel:{formatter:'{value}m/s'},
                 axisLine: {
                   show: false
                 }
               },
               {
                 type: 'value',
+                axisLabel:{formatter:'{value}m/s'},
                 axisTick: {
                   show: false
                 },
@@ -111,7 +113,16 @@
                 yAxisIndex: 1,
                 itemStyle: {
                   normal: {
-                    color: '#0084d7'
+                    //color: '#0084d7'
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                      offset: 0,
+                      //FF9E44
+                      color: '#4faCFE'
+                    }, {
+                      offset: 1,
+                      //FF4683
+                      color: '#00F2FE'
+                    }])
                   }
                 },
                 data: this.$store.state.WindSpeed

@@ -7,7 +7,7 @@
     width="420"
     height="345"
     data-setup='{}'>
-    <source src='rtmp://101.201.72.120:1935/hls/test2' type='rtmp/flv'/>
+    <source src='rtmp://101.201.119.21:1935/hls/test2' type='rtmp/flv'/>
   </video>
 </template>
 

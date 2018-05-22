@@ -3,14 +3,14 @@
 
 
     <Layout>
-      <Header style="height: 50px">
+      <Header style="height: 10px">
       </Header>
       <Content>
 
         <Row :gutter="16">
           <Col span="10">
           <Row>
-            <Card style="background:#0d1933;margin-left: 10px" :bordered="false">
+            <Card style="background:#0d1933;margin-left: 10px" :bordered="true">
               <p slot="title">
                 <Icon type="ios-film-outline"></Icon>
                 视频1
@@ -22,7 +22,7 @@
             </Card>
           </Row>
           <Row>
-            <Card style="background:#0d1933;margin-left: 10px;margin-top: 10px" :bordered="false">
+            <Card style="background:#0d1933;margin-left: 10px;margin-top: 10px" :bordered="true">
               <p slot="title">
                 <Icon type="ios-film-outline"></Icon>
                 视频3
@@ -37,7 +37,7 @@
 
           <Col span="10">
           <Row>
-            <Card style="background:#0d1933;margin-left: 10px" :bordered="false">
+            <Card style="background:#0d1933;margin-left: 10px" :bordered="true">
               <p slot="title">
                 <Icon type="ios-film-outline"></Icon>
                 视频2
@@ -49,7 +49,7 @@
             </Card>
           </Row>
           <Row>
-            <Card style="background:#0d1933;margin-left: 10px;margin-top: 10px" :bordered="false">
+            <Card style="background:#0d1933;margin-left: 10px;margin-top: 10px" :bordered="true">
               <p slot="title">
                 <Icon type="ios-film-outline"></Icon>
                 视频4
@@ -63,7 +63,7 @@
           </Col>
 
           <Col span="4">
-          <Card style="background:#0d1933;margin-right: 10px;height: 285px" :bordered="false">
+          <Card style="background:#0d1933;margin-right: 10px;height: 200px" :bordered="true">
             <p slot="title">固阳20WM光伏电站</p>
             <p>1.厂区-大门口</p>
             <p>2.设备区-主变</p>
@@ -74,9 +74,7 @@
 
         </Row>
 
-
       </Content>
-      <Footer style="text-align: center;margin-top: 20px">eClouds Design</Footer>
     </Layout>
 
   </div>
@@ -99,7 +97,8 @@
     },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        msg: 'Welcome to Your Vue.js App',
+        height: document.documentElement.clientHeight
       }
     }
   }

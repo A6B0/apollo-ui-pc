@@ -13,8 +13,8 @@
 <style>
   html, body {
     width: 100%;
-    height: 100%;
-    background: #0D172D;//rgb(37,45,65)
+    height: 1000px;
+
     overflow: hidden;
   }
 

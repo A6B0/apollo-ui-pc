@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart" :style="{height: '510px'}"></div>
+  <div id="myChart" :style="{height: '740px'}"></div>
 </template>
 
 <script>
@@ -59,7 +59,7 @@
             toolbox: {
               show: true,
               feature: {
-                dataView: {show: true, readOnly: false},
+                dataView: {show: false, readOnly: false},
                 magicType: {show: true, type: ['line', 'bar']},
                 restore: {show: true},
                 saveAsImage: {show: true}
@@ -73,8 +73,6 @@
             },
             legend: {
               data: ['总辐照度', '直接辐照'],
-
-
               textStyle: {
                 color: '#fff'
               }
@@ -90,6 +88,7 @@
             yAxis: [
               {
                 type: 'value',
+                axisLabel:{formatter:'{value}W/㎡'},
                 axisLine: {
                   show: false
                 },
@@ -106,7 +105,7 @@
               {
                 type: 'inside',
                 start: 0,
-                end: 10
+                end: 20
               }],
             series: [{
               name: '总辐照度',
@@ -125,17 +124,20 @@
               smooth: true,
               itemStyle: {
                 normal: {
-                  color: '#ff74ac'
+                  //#ff74ac
+                  color: '#F6d365'
                 }
               },
               areaStyle: {
                 normal: {
                   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                     offset: 0,
-                    color: '#FF9E44'
+                    //FF9E44
+                    color: '#F6d365'
                   }, {
                     offset: 1,
-                    color: '#FF4683'
+                    //FF4683
+                    color: '#fda085'
                   }])
                 }
               },
